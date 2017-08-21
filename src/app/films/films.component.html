@@ -1,0 +1,37 @@
+<div *ngIf="!filmsList" class="text-center">
+	<loaders-css [loader]="'line-scale'" [loaderClass]="'my-loader'"></loaders-css>
+</div>
+
+<div *ngIf="filmsList" class="row">	
+	<div *ngFor="let films of filmsList" class="col-sm-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<p><span class="glyphicon glyphicon-film"></span>
+				Film Title {{ films.title | uppercase}}</p>
+			</div>
+			<div class="panel-body">
+				<ul>
+				    <li >
+				      title:- {{ films.title }}
+				    </li>
+				    <li >
+				      producer:- {{ films.producer }}
+				    </li>
+				    <li >
+				      director:- {{ films.director }}
+				    </li>
+				    <li >
+				      episode_id:- {{ films.episode_id }}
+				    </li>
+				    <li >
+				      opening_crawl:- {{ films.opening_crawl }}
+				    </li>				    
+				    <li >
+				      release_date:- {{ films.release_date}}
+				    </li>
+			  	</ul>
+			</div>
+		</div>
+		
+	</div>
+</div>

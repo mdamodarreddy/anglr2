@@ -1,0 +1,50 @@
+<div class="row">
+	<div *ngIf="loading" id="loader" class="text-center">
+		<loaders-css [loader]="'line-scale-pulse-out-rapid'" [loaderClass]="'my-loader'"></loaders-css>
+	</div>
+	<p>{{errorMessage}}</p>
+
+	<div *ngIf="!loading" class="col-sm-12">
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th>S No:</th>
+					<th>Name</th>
+					<th>rotation_period</th>
+					<th>orbital_period</th>
+					<th>diameter</th>
+					<th>climate</th>
+					<th>gravity</th>
+					<th>terrain</th>
+					<th>surface_water</th>
+					<th>population</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let indx = index let planet of planetsData">
+					<th>{{indx + 1}}</th>
+					<th>{{planet.name}}</th>
+					<th>{{planet.rotation_period}}</th>
+					<th>{{planet.orbital_period}}</th>
+					<th>{{planet.diameter}}</th>
+					<th>{{planet.climate}}</th>
+					<th>{{planet.gravity}}</th>
+					<th>{{planet.terrain}}</th>
+					<th>{{planet.surface_water}}</th>
+					<th>{{planet.population}}</th>
+				</tr>
+			</tbody>
+		</table>		
+	
+		<div class="col-sm-1">
+			<select name="list" [(ngModel)]="listSelect" #list="ngModel" (change)="onOptionChange()">
+				<option *ngFor="let option of options let index = index" [selected]="option == 10" 
+				[ngValue]="option">{{option}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2 text-right col-sm-push-10">
+			<div class="col-sm-1 text-right" (click)="onBackward()"><a><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+			<div class="col-sm-1 text-left"(click)="onForward()"><a><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+		</div>
+	</div>
+</div>

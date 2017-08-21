@@ -1,0 +1,37 @@
+<div *ngIf="loading" id="loader" class="text-center"></div>
+
+<div *ngIf="peoples" class="row">
+	<div class="col-sm-12">
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th>S No:</th>
+					<th>Name</th>
+					<th>Height</th>
+					<th>Mass</th>
+					<th>Hair_color</th>
+					<th>Skin_color</th>
+					<th>Eye_color</th>
+					<th>Birth_year</th>
+					<th>Gender</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let people of peoples let indx = index">
+					<th>{{indx + 1}}</th>
+					<th>{{people.name}}</th>
+					<th>{{people.height}}</th>
+					<th>{{people.mass}}</th>
+					<th>{{people.hair_color}}</th>
+					<th>{{people.skin_color}}</th>
+					<th>{{people.eye_color}}</th>
+					<th>{{people.birth_year}}</th>
+					<th>{{people.gender}}</th>
+				</tr>
+			</tbody>
+		</table>
+	<div class="text-center">Total People {{totalPeopleCount}} to load 
+		<button class="btn btn-primary" (click)="onClick()">Load People</button>
+	</div>
+	</div>
+</div>
